@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.app.bissudroid.myapplication.activity.OrderDetailsFragment"
+        android:label="order_list"
+        tools:layout="@layout/order_list">
+
+    </fragment>
+    <fragment
+        android:id="@+id/salesReports"
+        android:name="com.app.bissudroid.myapplication.fragment.SalesReports"
+        android:label="SalesReports" />
+    <fragment
+        android:id="@+id/submitIssueFragment"
+        android:name="com.app.bissudroid.myapplication.fragment.SubmitIssueFragment"
+        android:label="SubmitIssueFragment" />
+    <fragment
+        android:id="@+id/previousOrderFragment"
+        android:name="com.app.bissudroid.myapplication.fragment.PreviousOrderFragment"
+        android:label="PreviousOrderFragment" />
+    <fragment
+        android:id="@+id/aboutDevelopersFragment"
+        android:name="com.app.bissudroid.myapplication.fragment.AboutDevelopersFragment"
+        android:label="AboutDevelopersFragment" />
+    <activity
+        android:id="@+id/logout"
+        android:name="com.app.bissudroid.myapplication.activity.LoginActivity"
+        android:label="activity_login"
+
+        tools:layout="@layout/activity_login">
+        <argument
+            android:name="isLoggedIn"
+            android:defaultValue="false"
+            app:argType="boolean" />
+    </activity>
+
+
+</navigation>
