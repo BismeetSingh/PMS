@@ -1,4 +1,4 @@
-package com.app.bissudroid.myapplication.activity;
+package com.app.bissudroid.myapplication.fragment;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;

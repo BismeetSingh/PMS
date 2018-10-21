@@ -1,10 +1,8 @@
 package com.app.bissudroid.myapplication.di;
 
-import android.support.design.widget.NavigationView;
-
 import com.app.bissudroid.myapplication.activity.LoginActivity;
 import com.app.bissudroid.myapplication.activity.NavigationActivity;
-import com.app.bissudroid.myapplication.activity.OrderDetailsFragment;
+import com.app.bissudroid.myapplication.fragment.OrderDetailsFragment;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

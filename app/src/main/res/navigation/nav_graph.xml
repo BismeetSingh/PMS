@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.app.bissudroid.myapplication.activity.OrderDetailsFragment"
+        android:name="com.app.bissudroid.myapplication.fragment.OrderDetailsFragment"
         android:label="order_list"
         tools:layout="@layout/order_list">
 

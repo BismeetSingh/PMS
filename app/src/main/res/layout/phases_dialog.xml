@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <CheckedTextView
+        style="@style/CheckedtextStyle"
+        android:id="@+id/checkedCad"
+        android:text="@string/cad" />
+
+    <CheckedTextView
+        android:id="@+id/checkedCasting"
+        style="@style/CheckedtextStyle"
+        android:text="@string/casting" />
+
+    <CheckedTextView
+        android:id="@+id/checkedFiling"
+        style="@style/CheckedtextStyle"
+        android:text="@string/filing" />
+
+    <CheckedTextView
+        android:id="@+id/checkedSetting"
+        style="@style/CheckedtextStyle"
+        android:text="@string/setting" />
+
+    <CheckedTextView
+        android:id="@+id/checkedFinishing"
+        style="@style/CheckedtextStyle"
+        android:text="@string/finishing" />
+
+    <CheckedTextView
+        android:id="@+id/checkedDispatch"
+        style="@style/CheckedtextStyle"
+        android:text="@string/dispatch" />
+</LinearLayout>
+</layout>
