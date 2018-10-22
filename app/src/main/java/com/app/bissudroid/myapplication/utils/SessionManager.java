@@ -3,7 +3,7 @@ package com.app.bissudroid.myapplication.utils;
 import android.content.SharedPreferences;
 
 public class SessionManager {
-    SharedPreferences sharedPreferences;
+    private SharedPreferences sharedPreferences;
 
     public SessionManager(SharedPreferences sharedPreferences) {
         this.sharedPreferences=sharedPreferences;

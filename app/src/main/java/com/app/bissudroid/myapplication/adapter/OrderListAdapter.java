@@ -6,6 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.app.bissudroid.myapplication.OrderClickListener;
+import com.app.bissudroid.myapplication.R;
 import com.app.bissudroid.myapplication.databinding.OrderCardBinding;
 import com.app.bissudroid.myapplication.model.DiamondDetails;
 
@@ -13,14 +15,16 @@ import java.util.ArrayList;
 
 public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.MyViewHolder> {
     private ArrayList<DiamondDetails> diamondDetails;
-    private int pos;
+    private OrderClickListener orderClickListener;
+
+
     private LayoutInflater layoutInflater;
-    private Context context;
+
 //    private OrderCardBinding orderCardBinding;
 
-    public OrderListAdapter(Context context) {
-        this.context=context;
+    public OrderListAdapter(Context context, OrderClickListener orderClickListener) {
         layoutInflater = LayoutInflater.from(context);
+        this.orderClickListener = orderClickListener;
         diamondDetails = new ArrayList<>();
     }
 
@@ -74,9 +78,39 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.MyVi
 
         private void bind(DiamondDetails diamondDetails) {
             orderCardBinding.setDiamond(diamondDetails);
+            diamondDetails.setArr(setarray(diamondDetails));
+//            int arr[]=setarray(diamondDetails);
+
+            orderCardBinding.getRoot().findViewById(R.id.updatePhase)
+                    .setOnClickListener(v -> orderClickListener.OnClickOrder(getAdapterPosition(), diamondDetails,
+                            diamondDetails.getArr()));
+
             orderCardBinding.executePendingBindings();
 
 
         }
+
+        private int[] setarray(DiamondDetails diamondDetails) {
+            int arr[] = new int[6];
+            arr[0] = diamondDetails.getPhase_CAD();
+            arr[1] = diamondDetails.getPhase_CASTING();
+            arr[2] = diamondDetails.getPhase_FILING();
+            arr[3] = diamondDetails.getPhase_SETTING();
+            arr[4] = diamondDetails.getPhase_FINISHING();
+            arr[5] = diamondDetails.getPhase_DISPATCH();
+            return arr;
+
+        }
+    }
+    public void changePhases(int pos, int[] arr){
+        this.diamondDetails.get(pos).setArr(arr);
+        DiamondDetails diamondDetails1=this.diamondDetails.get(pos);
+        diamondDetails1.setPhase_CAD(arr[0]);
+        diamondDetails1.setPhase_CASTING(arr[1]);
+        diamondDetails1.setPhase_FILING(arr[2]);
+        diamondDetails1.setPhase_SETTING(arr[3]);
+        diamondDetails1.setPhase_FINISHING(arr[4]);
+        diamondDetails1.setPhase_DISPATCH(arr[5]);
+        notifyDataSetChanged();
     }
 }

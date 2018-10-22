@@ -17,4 +17,8 @@ public class DiamondDetailsViewModel extends ViewModel {
     public LiveData<List<DiamondDetails>> getOrders(){
         return homeSalesRepository.getOrders();
     }
+    public LiveData<String> updatePhases(int saleid,int cad,int cast,int dispatch,int filing,int setting,int finishing){
+        return homeSalesRepository.updatePhases(saleid,cad,cast,dispatch,filing,setting,finishing);
+
+    }
 }
