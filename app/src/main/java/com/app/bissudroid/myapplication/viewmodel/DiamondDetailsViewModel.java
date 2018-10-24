@@ -9,7 +9,7 @@ import com.app.bissudroid.myapplication.repository.HomeSalesRepository;
 import java.util.List;
 
 public class DiamondDetailsViewModel extends ViewModel {
-    HomeSalesRepository homeSalesRepository;
+    private HomeSalesRepository homeSalesRepository;
 
     public DiamondDetailsViewModel(HomeSalesRepository homeSalesRepository) {
         this.homeSalesRepository=homeSalesRepository;

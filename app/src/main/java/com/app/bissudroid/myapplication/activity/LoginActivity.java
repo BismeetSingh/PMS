@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             String password = activityLoginBinding.inputPassword.getText().toString();
             loginViewModel.login(email, password).observe(this, s -> {
 //                Timber.d(s);
-                if (s == 1) {
+                if (s!=null && s == 1) {
                     sessionManager.saveLoggedInState(true);
                     startActivity(new Intent(LoginActivity.this, NavigationActivity.class));
                     finish();

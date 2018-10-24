@@ -111,7 +111,8 @@ public class OrderDetailsFragment extends Fragment implements OrderClickListener
 //    }
 
     @Override
-    public void onAttach(Context context) {Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show();
+    public void onAttach(Context context) {
+        Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show();
         super.onAttach(context);
         AndroidSupportInjection.inject(this);
 //        AndroidInjection.inject(this);
@@ -124,14 +125,14 @@ public class OrderDetailsFragment extends Fragment implements OrderClickListener
     public void OnClickOrder(int pos, DiamondDetails diamondDetails, int arr[]) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        Timber.d("%s",Arrays.toString(arr));
+        Timber.d("%s", Arrays.toString(arr));
         PhasesDialogBinding phasesDialogBinding = PhasesDialogBinding.inflate(LayoutInflater.from(getActivity()), null, false);
         CheckedTextView textView[] = getArrayOfViews(phasesDialogBinding);
         setListener(textView, arr);
 
         builder.setView(phasesDialogBinding.getRoot());
         builder.setPositiveButton("Save", (dialog, which) -> {
-            checkPhases(pos,textView,diamondDetails);
+            checkPhases(pos, textView, diamondDetails);
 
             dialog.dismiss();
         });
@@ -142,9 +143,10 @@ public class OrderDetailsFragment extends Fragment implements OrderClickListener
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
     }
-/**
- * This method saves the updated phases to the databases after assigning respective booleans,
-*/
+
+    /**
+     * This method saves the updated phases to the databases after assigning respective booleans,
+     */
     private void checkPhases(int pos, CheckedTextView[] textView, DiamondDetails diamondDetails) {
         int cad = 0, cast = 0, finish = 0, dispatch = 0, setting = 0, filing = 0;
         if (textView[0].isChecked()) {
@@ -165,15 +167,15 @@ public class OrderDetailsFragment extends Fragment implements OrderClickListener
         if (textView[5].isChecked()) {
             dispatch = 1;
         }
-        int arr[]=new int[6];
-        arr[0]=cad;
-        arr[1]=cast;
-        arr[2]=filing;
-        arr[3]=setting;
-        arr[4]=finish;
-        arr[5]=dispatch;
+        int arr[] = new int[6];
+        arr[0] = cad;
+        arr[1] = cast;
+        arr[2] = filing;
+        arr[3] = setting;
+        arr[4] = finish;
+        arr[5] = dispatch;
         diamondDetails.setArr(arr);
-        orderListAdapter.changePhases(pos,arr);
+        orderListAdapter.changePhases(pos, arr);
 
         diamondDetailsViewModel.updatePhases(1, cad, cast, dispatch, filing, setting, finish)
                 .observe(this, s -> Toast.makeText(context, "" + s, Toast.LENGTH_SHORT).show());
@@ -181,30 +183,48 @@ public class OrderDetailsFragment extends Fragment implements OrderClickListener
 
     private void setListener(CheckedTextView[] textView, int[] arr) {
 
-        int i = 0;
-
-        for (CheckedTextView textView1 : textView) {
+        for (int i = 0; i < textView.length; i++) {
             if (arr[i] == 0) {
-                textView1.setCheckMarkDrawable(null);
-                textView1.setChecked(false);
+                textView[i].setCheckMarkDrawable(null);
+                textView[i].setChecked(false);
             } else {
-                textView1.setCheckMarkDrawable(R.drawable.tick);
-                textView1.setChecked(true);
+                textView[i].setCheckMarkDrawable(R.drawable.tick);
+                textView[i].setChecked(true);
             }
-            i++;
-            textView1.setOnClickListener(v -> {
+            int finalI = i;
+            textView[i].setOnClickListener(v -> {
+                if(!textView[finalI].isChecked()) {
+                    textView[finalI].setChecked(true);
+                    textView[finalI].setCheckMarkDrawable(R.drawable.tick);
+                }
+                else {
+                    textView[finalI].setChecked(false);
+                    textView[finalI].setCheckMarkDrawable(null);
+                }
+                if (textView[finalI].isChecked()) {
+                    for (int j = 0; j <= finalI; j++) {
+                        textView[j].setChecked(true);
+                        textView[j].setCheckMarkDrawable(R.drawable.tick);
 
-                if (textView1.isChecked()) {
-                    textView1.setChecked(false);
-                    textView1.setCheckMarkDrawable(null);
+
+                    }
                 }
-                else{
-                    textView1.setCheckMarkDrawable(R.drawable.tick);
-                    textView1.setChecked(true);
+                else {
+                    for (int j=finalI+1;j<6;j++){
+                        textView[j].setChecked(false);
+                        textView[j].setCheckMarkDrawable(null);
+
+                    }
                 }
+//                    for (int j=finalI;j<textView.length;j++){
+//                        textView[j].setChecked(false);
+//                        textView[j].setCheckMarkDrawable(null);
+//                    }
+
 
             });
-        }Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show();
+        }
+        Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show();
     }
 
     private CheckedTextView[] getArrayOfViews(PhasesDialogBinding phasesDialogBinding) {

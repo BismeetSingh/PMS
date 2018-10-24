@@ -24,6 +24,7 @@
         android:id="@+id/checkedCad"
         android:text="@string/cad" />
 
+
     <CheckedTextView
         android:id="@+id/checkedCasting"
         style="@style/CheckedtextStyle"
