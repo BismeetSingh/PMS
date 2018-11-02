@@ -24,6 +24,7 @@ import timber.log.Timber;
  */
 public class LoginActivity extends AppCompatActivity {
     ActivityLoginBinding activityLoginBinding;
+    int a;
 
     @Inject
     SessionManager sessionManager;
