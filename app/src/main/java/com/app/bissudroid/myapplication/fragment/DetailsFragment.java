@@ -1,5 +1,8 @@
 package com.app.bissudroid.myapplication.fragment;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,12 +13,23 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.app.bissudroid.myapplication.databinding.PerOrderDetailsBinding;
+import com.app.bissudroid.myapplication.factory.HomeScreenFactory;
 import com.app.bissudroid.myapplication.model.DiamondDetails;
+import com.app.bissudroid.myapplication.viewmodel.DiamondDetailsViewModel;
+
+import javax.inject.Inject;
+
+import dagger.android.support.AndroidSupportInjection;
 
 
 public class DetailsFragment extends Fragment {
 
+    DiamondDetails diamondDetails;
+
     PerOrderDetailsBinding perOrderDetailsBinding;
+    @Inject
+    HomeScreenFactory homeScreenFactory;
+    DiamondDetailsViewModel diamondDetailsViewModel;
 
     @Nullable
     @Override
@@ -27,11 +41,27 @@ public class DetailsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        diamondDetailsViewModel=ViewModelProviders.of(this,homeScreenFactory).get(DiamondDetailsViewModel.class);
+        diamondDetails=getArguments().getParcelable("diamond");
         setValues();
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        perOrderDetailsBinding.delete.setOnClickListener(v -> {
+            diamondDetailsViewModel.deleteSale(diamondDetails.getSale_id()).observe(this, s -> {
+                Toast.makeText(getActivity(), ""+s, Toast.LENGTH_SHORT).show();
+
+            });
+
+
+        });
+    }
+
     private void setValues() {
-        DiamondDetails diamondDetails=getArguments().getParcelable("diamond");
+
         int id=diamondDetails.getSale_id();
         String ringSize=diamondDetails.getRingSize();
         String purity=diamondDetails.getMetal_purity();
@@ -53,5 +83,11 @@ public class DetailsFragment extends Fragment {
         perOrderDetailsBinding.salesId.append(String.valueOf(id));
 
         Toast.makeText(getActivity(), ""+id, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        AndroidSupportInjection.inject(this);
+        super.onAttach(context);
     }
 }

@@ -2,6 +2,7 @@ package com.app.bissudroid.myapplication.di;
 
 import com.app.bissudroid.myapplication.activity.LoginActivity;
 import com.app.bissudroid.myapplication.activity.NavigationActivity;
+import com.app.bissudroid.myapplication.fragment.DetailsFragment;
 import com.app.bissudroid.myapplication.fragment.OrderDetailsFragment;
 
 import dagger.Module;
@@ -16,5 +17,7 @@ public abstract class PMSBindingModule {
     OrderDetailsFragment orderDetailsFragment();
     @ContributesAndroidInjector
     abstract NavigationActivity navigationActivity();
+    @ContributesAndroidInjector
+    abstract DetailsFragment detailsFragment();
 
 }

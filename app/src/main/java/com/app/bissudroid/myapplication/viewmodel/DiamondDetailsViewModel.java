@@ -21,4 +21,8 @@ public class DiamondDetailsViewModel extends ViewModel {
         return homeSalesRepository.updatePhases(saleid,cad,cast,dispatch,filing,setting,finishing);
 
     }
+    public LiveData<String> deleteSale(int saleid){
+        return homeSalesRepository.deleteSale(saleid);
+
+    }
 }

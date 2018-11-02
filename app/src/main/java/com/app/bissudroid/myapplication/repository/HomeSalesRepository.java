@@ -5,7 +5,6 @@ import android.arch.lifecycle.MutableLiveData;
 
 import com.app.bissudroid.myapplication.model.DiamondDetails;
 import com.app.bissudroid.myapplication.service.PMSService;
-import com.app.bissudroid.myapplication.utils.SessionManager;
 
 import java.io.IOException;
 import java.util.List;
@@ -60,4 +59,27 @@ public class HomeSalesRepository {
 
 
     }
+    public LiveData<String> deleteSale(int saleid){
+        MutableLiveData<String> sale=new MutableLiveData<>();
+        pmsService.deleteSale(saleid).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                try {
+                    sale.postValue(response.body().string());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    sale.postValue(e.getMessage());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                sale.postValue(t.getMessage());
+
+            }
+        });
+        return sale;
+    }
+
 }

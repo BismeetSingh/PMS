@@ -26,5 +26,8 @@ public interface PMSService {
                                     @Field("phase_SETTING")int phase_SETTING,
                                     @Field("phase_FINISHING")int phase_FINISHING,
                                     @Field("phase_DISPATCH")int phase_DISPATCH);
+    @FormUrlEncoded
+    @POST("deletePhases.php")
+    Call<ResponseBody> deleteSale(@Field("saleid")int  saleid);
 
 }

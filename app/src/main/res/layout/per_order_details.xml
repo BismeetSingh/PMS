@@ -295,6 +295,7 @@
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:text="Edit"
+                    android:id="@+id/edit"
                     android:textColor="#fff"
                     app:backgroundTint="@color/colorPrimary"
 
@@ -309,6 +310,7 @@
                     android:layout_weight="1"
                     android:text="Delete"
                     android:textColor="#fff"
+                    android:id="@+id/delete"
 
                     app:backgroundTint="@color/colorPrimary"
                     app:icon="@drawable/ic_rubbish_bin"
@@ -321,6 +323,7 @@
                     android:layout_weight="1"
                     android:text="Reshoot"
                     android:textColor="#fff"
+                    android:id="@+id/reshoot"
                     app:backgroundTint="@color/colorPrimary"
                     app:icon="@drawable/reset"
                     app:iconTint="#fff" />
