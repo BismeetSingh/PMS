@@ -11,6 +11,7 @@
         android:label="order_list"
         tools:layout="@layout/order_list">
 
+        <argument android:name="diamond" />
     </fragment>
     <fragment
         android:id="@+id/salesReports"
@@ -28,6 +29,10 @@
         android:id="@+id/aboutDevelopersFragment"
         android:name="com.app.bissudroid.myapplication.fragment.AboutDevelopersFragment"
         android:label="AboutDevelopersFragment" />
+    <fragment
+        android:name="com.app.bissudroid.myapplication.fragment.DetailsFragment"
+        android:id="@+id/details"
+        android:label="DetailsFragment"/>
     <activity
         android:id="@+id/logout"
         android:name="com.app.bissudroid.myapplication.activity.LoginActivity"

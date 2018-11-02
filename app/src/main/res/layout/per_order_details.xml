@@ -1,278 +1,334 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.constraint.ConstraintLayout
+    <ScrollView
+        android:id="@+id/root"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/ringSize"
-        app:layout_constraintTop_toTopOf="@+id/ringSize">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-
-        <ImageView
-            android:id="@+id/productImage"
-            android:layout_width="200dp"
-            android:layout_height="207dp"
-            android:layout_gravity="center"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.522"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic[6]" />
-
-        <TextView
-            android:id="@+id/imageURL"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="180dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:text="URL"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/productImage" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tagLine"
-            android:textColor="@color/colorAccent"
+
+            <ImageView
+                android:id="@+id/productImage"
+                android:layout_width="200dp"
+                android:layout_height="207dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                tools:srcCompat="@tools:sample/backgrounds/scenic[6]" />
+
+            <TextView
+                android:id="@+id/imageURL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="URL"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tagLine"
+                style="@style/TextHeading"
+                android:text="Tag Line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    style="@style/SubItems"
+                    android:layout_weight="0.6"
+                    android:text="Ring Code" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/ringCode"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.4"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    tools:text="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    style="@style/SubItems"
+                    android:layout_weight="0.6"
+                    android:text="Ring Size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/ringSize"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.4"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    style="@style/SubItems"
+                    android:layout_weight="0.6"
+                    android:text="Sales Id" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/salesId"
+                    android:layout_weight="0.4"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    tools:text="1" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/metalType"
+
+                style="@style/TextHeading"
+                android:text="Metal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    style="@style/SubItems"
+                    android:layout_weight="0.6"
+                    android:text="Purity" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/metalPurity"
+                    android:layout_weight="0.4"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    tools:text="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    style="@style/SubItems"
+                    android:layout_weight="0.6"
+                    android:text="Color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/metalColor"
+                    android:layout_weight="0.4"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    tools:text="1" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/diamond"
+
+                style="@style/TextHeading"
+                android:text="Diamond" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/SubItems"
+                    android:layout_weight="0.6"
+                    android:text="Color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.4"
+                    android:id="@+id/diamondColor"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    tools:text="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    style="@style/SubItems"
+                    android:layout_weight="0.6"
+                    android:text="Clarity" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/diamondClarity"
+                    android:layout_weight="0.4"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    tools:text="1" />
+            </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
 
-            android:text="Tag Line"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageURL" />
-
-        <TextView
-            android:id="@+id/ringCode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/colorAccent"
-            android:text="Ring Code"
-            app:layout_constraintBottom_toTopOf="@+id/ringSize"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tagLine"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/ringSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/colorAccent"
-            android:layout_marginLeft="8dp"
-
-            android:layout_marginBottom="8dp"
-            android:text="Ring Size"
-            app:layout_constraintBottom_toTopOf="@+id/salesId"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/salesId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/colorAccent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Sales Id"
-            app:layout_constraintBottom_toTopOf="@+id/metal"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/metal"
+                style="@style/SubItems"
+                android:layout_weight="0.6"
+                android:text="Cut" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/diamondCut"
+                android:layout_weight="0.4"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                tools:text="1" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:textColor="@color/colorAccent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:textSize="20sp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Metal"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/metalType"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tagLine"
-            app:layout_constraintVertical_bias="1.0" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
 
-        <TextView
-            android:id="@+id/metalType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
+                style="@style/SubItems"
+                android:layout_weight="0.6"
+                android:text="Weight" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:textSize="20sp"
+                android:id="@+id/diamondWeight"
+                android:gravity="center"
+                android:textStyle="bold"
+                tools:text="1" />
+        </LinearLayout>
 
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Type"
-            app:layout_constraintBottom_toTopOf="@+id/metalPurity"
-            app:layout_constraintStart_toStartOf="parent" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorAccent" />
 
-        <TextView
-            android:id="@+id/metalPurity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/colorAccent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Purity"
-            app:layout_constraintBottom_toTopOf="@+id/metalColor"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/phases"
+                style="@style/TextHeading"
+                android:text="Phases" />
 
-        <TextView
-            android:id="@+id/metalColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginBottom="23dp"
-            android:text="Color"
-            android:textColor="@color/colorAccent"
-            app:layout_constraintBottom_toTopOf="@+id/diamondColor"
-            app:layout_constraintStart_toStartOf="parent" />
+            <include
+                android:id="@+id/pdialog"
+                layout="@layout/phases_dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="366dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/colorAccent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/textView6"
+                style="@style/SubItems"
+                android:text="Client"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+
+                <android.support.design.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="Edit"
+                    android:textColor="#fff"
+                    app:backgroundTint="@color/colorPrimary"
+
+                    app:icon="@drawable/ic_pencil_edit_button"
+                    app:iconGravity="start"
+                    app:iconTint="#fff" />
+
+                <android.support.design.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="Delete"
+                    android:textColor="#fff"
+
+                    app:backgroundTint="@color/colorPrimary"
+                    app:icon="@drawable/ic_rubbish_bin"
+                    app:iconTint="#fff" />
+
+                <android.support.design.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="Reshoot"
+                    android:textColor="#fff"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:icon="@drawable/reset"
+                    app:iconTint="#fff" />
+            </LinearLayout>
 
 
-        <TextView
-            android:id="@+id/diamond"
-            android:textColor="@color/colorAccent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Diamond"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/diamondColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/metal"
-            app:layout_constraintVertical_bias="1.0" />
+        </LinearLayout>
+    </ScrollView>
 
-        <TextView
-            android:id="@+id/diamondColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/colorAccent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Color"
-            app:layout_constraintBottom_toTopOf="@+id/diamondClarity"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/diamondClarity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/colorAccent"
-            android:text="Clarity"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/diamondColor"
-            tools:layout_editor_absoluteY="464dp" />
-
-        <TextView
-            android:id="@+id/diamondCut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="28dp"
-            android:text="Cut"
-            android:textColor="@color/colorAccent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/diamondClarity" />
-
-        <TextView
-            android:id="@+id/diamondWeight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/colorAccent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="4dp"
-            android:text="Weight"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/diamondCut" />
-
-        <TextView
-            android:id="@+id/phases"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginEnd="8dp"
-            android:textColor="@color/colorAccent"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Phases"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/diamondWeight" />
-
-        <include
-            android:id="@+id/pdialog"
-            layout="@layout/phases_dialog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:textColor="@color/colorAccent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/phases" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:text="Client"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/colorAccent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pdialog"
-            tools:layout_editor_absoluteX="29dp" />
-    </android.support.constraint.ConstraintLayout>
-</ScrollView>
-
+</layout>
 

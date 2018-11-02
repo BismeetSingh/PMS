@@ -29,6 +29,7 @@ import java.util.Arrays;
 
 import javax.inject.Inject;
 
+import androidx.navigation.Navigation;
 import dagger.android.support.AndroidSupportInjection;
 import timber.log.Timber;
 
@@ -51,8 +52,6 @@ public class OrderDetailsFragment extends Fragment implements OrderClickListener
         orderListAdapter = new OrderListAdapter(getActivity(), this);
         orderListBinding.listorders.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         diamondDetailsViewModel = ViewModelProviders.of(this, homeScreenFactory).get(DiamondDetailsViewModel.class);
-
-
         return orderListBinding.getRoot();
 
     }
@@ -80,8 +79,11 @@ public class OrderDetailsFragment extends Fragment implements OrderClickListener
                     int filing = diamondDetails.get(i).getPhase_FILING();
                     int setting = diamondDetails.get(i).getPhase_SETTING();
                     int finishing = diamondDetails.get(i).getPhase_FINISHING();
+                    String cut=diamondDetails.get(i).getDiamondCut();
+                    String weight=diamondDetails.get(i).getDiamondWeight();
+                    int ringid=diamondDetails.get(i).getRingId();
                     DiamondDetails diamondDetailsitem = new DiamondDetails(sale_id, tagline, dcolor, mcolor, clarity, mtype, mpurity, ringSize
-                            , cad, casting, filing, setting, finishing, dispatch);
+                            , cad, casting, filing, setting, finishing, dispatch,cut,weight,ringid);
                     diamondDetailsList.add(diamondDetailsitem);
 
                 }
@@ -142,6 +144,13 @@ public class OrderDetailsFragment extends Fragment implements OrderClickListener
         AlertDialog dialog = builder.create();
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
+    }
+
+    @Override
+    public void onitemClick(int pos, DiamondDetails diamondDetails) {
+        Bundle bundle=new Bundle();
+        bundle.putParcelable("diamond",diamondDetails);
+        Navigation.findNavController(orderListBinding.getRoot()).navigate(R.id.details,bundle);
     }
 
     /**
@@ -238,5 +247,6 @@ public class OrderDetailsFragment extends Fragment implements OrderClickListener
         return viewArray;
 
     }
+
 
 }
